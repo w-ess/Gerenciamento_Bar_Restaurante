@@ -1,0 +1,18 @@
+object DmBD: TDmBD
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Height = 200
+  Width = 317
+  object DBConexao: TFDConnection
+    Params.Strings = (
+      'OSAuthent=Yes'
+      'Database=SYSVENDA'
+      'User_Name=sa'
+      'Password=WES'
+      'Server=DESKTOP-FERHKMN\SQLEXPRESS'
+      'DriverID=MSSQL')
+    LoginPrompt = False
+    Left = 24
+    Top = 16
+  end
+end

@@ -1,0 +1,168 @@
+unit UfrmVenda;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UfrmBasic, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Data.DB, Vcl.DBCtrls, AdvGroupBox, Vcl.Grids, Vcl.DBGrids, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.Buttons, RzPanel, AdvGlowButton,
+  AdvCombo;
+
+type
+  TFrmVenda = class(TFrmBasic)
+    PnCaption: TPanel;
+    Image1: TImage;
+    Label1: TLabel;
+    DBGrid1: TDBGrid;
+    FDQryItemComanda: TFDQuery;
+    FDQryItemComandaCODIGO: TFDAutoIncField;
+    FDQryItemComandaCOMANDA: TIntegerField;
+    FDQryItemComandaPRODUTO: TIntegerField;
+    FDQryItemComandaDESCRICAO: TStringField;
+    FDQryItemComandaVALOR: TBCDField;
+    FDQryItemComandaQUANTIDADE: TBCDField;
+    FDQryItemComandaDESCONTO: TBCDField;
+    FDQryItemComandaVALOR_TOTAL_LIQUIDO: TBCDField;
+    DsItemComanda: TDataSource;
+    FDQryComanda: TFDQuery;
+    FDQryComandaCODIGO: TFDAutoIncField;
+    FDQryComandaDATA_HORA: TSQLTimeStampField;
+    DsComanda: TDataSource;
+    RzPanel5: TRzPanel;
+    Panel1: TPanel;
+    GridItens: TDBGrid;
+    FDQryComandaNOME: TStringField;
+    FDQryComandaDESCRICAO: TStringField;
+    Shape2: TShape;
+    EdtDesProduto: TEdit;
+    BtnPsqPrd: TAdvGlowButton;
+    Label9: TLabel;
+    FDQryItemComandaTOT_DESCONTO: TAggregateField;
+    FDQryItemComandaTOT_PEDIDO: TAggregateField;
+    FDQryItemComandaTOT_PRODUTO: TAggregateField;
+    BtnConfirmar: TAdvGlowButton;
+    Shape1: TShape;
+    DBText7: TDBText;
+    Label8: TLabel;
+    Shape3: TShape;
+    DBText4: TDBText;
+    Label5: TLabel;
+    Shape4: TShape;
+    Label6: TLabel;
+    DBText5: TDBText;
+    Shape5: TShape;
+    Label7: TLabel;
+    DBText6: TDBText;
+    Shape6: TShape;
+    Label2: TLabel;
+    DBText1: TDBText;
+    Shape7: TShape;
+    Label3: TLabel;
+    DBText2: TDBText;
+    Shape8: TShape;
+    DBText3: TDBText;
+    Label4: TLabel;
+    FDQryComandaGARCOM: TIntegerField;
+    FDQryComandaMESA: TIntegerField;
+    BtnNovo: TAdvGlowButton;
+    BtnAlterar: TAdvGlowButton;
+    procedure BtnNovoClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BtnAlterarClick(Sender: TObject);
+    procedure GridItensDrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure BtnConfirmarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmVenda: TFrmVenda;
+
+implementation
+
+{$R *.dfm}
+
+uses UDmBD, UfrmCadVenda, UBiblioteca, UDmLookup, UfrmConfVenda;
+
+procedure TFrmVenda.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  FDQryComanda.close;
+  FDQryItemComanda.close;
+  inherited;
+end;
+
+procedure TFrmVenda.FormCreate(Sender: TObject);
+begin
+  inherited;
+
+  FDQryComanda.open;
+  FDQryItemComanda.open;
+
+end;
+
+procedure TFrmVenda.GridItensDrawColumnCell(Sender: TObject; const Rect: TRect;
+  DataCol: Integer; Column: TColumn; State: TGridDrawState);
+begin
+  inherited;
+  if not odd(FDQryItemComanda.RecNo) then
+    if not (gdSelected in State) then
+      begin
+        GridItens.Canvas.Brush.Color := clMoneyGreen;
+        GridItens.Canvas.FillRect(Rect);
+        GridItens.DefaultDrawDataCell(rect,Column.Field,state);
+      end;
+end;
+
+procedure TFrmVenda.BtnAlterarClick(Sender: TObject);
+begin
+  inherited;
+  try
+    FrmCadVenda := TFrmCadVenda.Create(Self);
+    FrmCadVenda.FDQryComanda.Edit;
+    FrmCadVenda.PCodigo := FDQryComanda.FieldByName('CODIGO').AsInteger;
+    FrmCadVenda.ShowModal;
+  finally
+    FreeAndNil(FrmCadVenda);
+    FDQryItemComanda.Refresh;
+    FDQryComanda.Refresh;
+  end;
+
+end;
+
+procedure TFrmVenda.BtnConfirmarClick(Sender: TObject);
+begin
+  inherited;
+  try
+    FrmConfVenda := TFrmConfVenda.Create(Self);
+    FrmConfVenda.PCodVenda := FDQryComanda.FieldByName('CODIGO').AsInteger;
+    FrmConfVenda.PVlrVenda := FDQryItemComanda.AggFields.FieldByName('TOT_PEDIDO').Value;
+    FrmConfVenda.ShowModal;
+  finally
+    FreeAndNil(FrmConfVenda);
+    FDQryComanda.Refresh;
+   // FDQryComanda.Last;
+  end;
+end;
+
+procedure TFrmVenda.BtnNovoClick(Sender: TObject);
+begin
+  inherited;
+  try
+    FrmCadVenda := TFrmCadVenda.Create(Self);
+    FrmCadVenda.FDQryComanda.Insert;
+    FrmCadVenda.ShowModal;
+  finally
+    FreeAndNil(FrmCadVenda);
+    FDQryComanda.Refresh;
+    FDQryComanda.Last;
+  end;
+end;
+
+end.

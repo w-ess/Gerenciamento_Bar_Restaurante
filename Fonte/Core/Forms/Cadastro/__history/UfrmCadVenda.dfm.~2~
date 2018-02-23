@@ -1,0 +1,1001 @@
+inherited FrmCadVenda: TFrmCadVenda
+  BorderStyle = bsToolWindow
+  Caption = 'FrmCadVenda'
+  ClientHeight = 425
+  ClientWidth = 595
+  Position = poDesktopCenter
+  OnCreate = FormCreate
+  ExplicitWidth = 601
+  ExplicitHeight = 454
+  PixelsPerInch = 96
+  TextHeight = 13
+  object PnCaption: TPanel
+    Left = 0
+    Top = 0
+    Width = 595
+    Height = 39
+    Align = alTop
+    Color = clMaroon
+    ParentBackground = False
+    TabOrder = 1
+    object Image1: TImage
+      Left = 1
+      Top = 1
+      Width = 46
+      Height = 37
+      Align = alLeft
+    end
+    object Label1: TLabel
+      AlignWithMargins = True
+      Left = 50
+      Top = 4
+      Width = 65
+      Height = 31
+      Align = alLeft
+      Caption = 'Venda'
+      Color = clMaroon
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -21
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      ExplicitHeight = 25
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 365
+    Width = 595
+    Height = 60
+    Align = alBottom
+    Color = clMaroon
+    ParentBackground = False
+    TabOrder = 0
+    object LblSubTotal: TLabel
+      Left = 10
+      Top = 22
+      Width = 95
+      Height = 24
+      AutoSize = False
+      Caption = 'SUBTOTAL:'
+      Color = clSilver
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -16
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      WordWrap = True
+    end
+    object DBText1: TDBText
+      Left = 106
+      Top = 22
+      Width = 274
+      Height = 17
+      DataField = 'SUBTOTAL'
+      DataSource = DsItemComanda
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -16
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object BtnConfirmar: TAdvGlowButton
+      Left = 441
+      Top = 9
+      Width = 145
+      Height = 45
+      Cursor = crHandPoint
+      Caption = 'CONFIRMA (F5)'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      NotesFont.Charset = DEFAULT_CHARSET
+      NotesFont.Color = clWindowText
+      NotesFont.Height = -11
+      NotesFont.Name = 'Tahoma'
+      NotesFont.Style = []
+      ParentFont = False
+      TabOrder = 0
+      OnClick = BtnConfirmarClick
+      Appearance.BorderColor = clWhite
+      Appearance.BorderColorFocused = clRed
+      Appearance.Color = 1557580
+      Appearance.ColorTo = 1557580
+      Appearance.ColorChecked = 1557580
+      Appearance.ColorCheckedTo = 1557580
+      Appearance.ColorDisabled = 1557580
+      Appearance.ColorDisabledTo = 1557580
+      Appearance.ColorDown = 1557580
+      Appearance.ColorDownTo = 1557580
+      Appearance.ColorHot = 1557580
+      Appearance.ColorHotTo = 1557580
+      Appearance.ColorMirror = 1557580
+      Appearance.ColorMirrorTo = 1557580
+      Appearance.ColorMirrorHot = 1557580
+      Appearance.ColorMirrorHotTo = 1557580
+      Appearance.ColorMirrorDown = 1557580
+      Appearance.ColorMirrorDownTo = 1557580
+      Appearance.ColorMirrorChecked = 16102556
+      Appearance.ColorMirrorCheckedTo = 16768988
+      Appearance.ColorMirrorDisabled = 11974326
+      Appearance.ColorMirrorDisabledTo = 15921906
+    end
+  end
+  object RzPanel1: TRzPanel
+    Left = 501
+    Top = 217
+    Width = 85
+    Height = 139
+    BorderOuter = fsFlatRounded
+    Color = clSilver
+    TabOrder = 2
+    object LblVenda: TLabel
+      Left = 3
+      Top = 59
+      Width = 79
+      Height = 36
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'VENDA N'#176' 000000'
+      Color = clSilver
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clHighlight
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Visible = False
+      WordWrap = True
+    end
+    object LblData: TLabel
+      Left = 3
+      Top = 99
+      Width = 79
+      Height = 36
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'DATA 00/00/00'
+      Color = clSilver
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clHighlight
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Visible = False
+      WordWrap = True
+    end
+    object BtnIncluir: TAdvGlowButton
+      Left = 3
+      Top = 2
+      Width = 79
+      Height = 51
+      Cursor = crHandPoint
+      Caption = 'INCLUIR (F4)'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      NotesFont.Charset = DEFAULT_CHARSET
+      NotesFont.Color = clWindowText
+      NotesFont.Height = -11
+      NotesFont.Name = 'Tahoma'
+      NotesFont.Style = []
+      ParentFont = False
+      TabOrder = 0
+      OnClick = BtnIncluirClick
+      Appearance.BorderColor = clWhite
+      Appearance.BorderColorFocused = clRed
+      Appearance.Color = 10053171
+      Appearance.ColorTo = 10053171
+      Appearance.ColorChecked = 10053171
+      Appearance.ColorCheckedTo = 10053171
+      Appearance.ColorDisabled = 10053171
+      Appearance.ColorDisabledTo = 10053171
+      Appearance.ColorDown = 10053171
+      Appearance.ColorDownTo = 10053171
+      Appearance.ColorHot = 10053171
+      Appearance.ColorHotTo = 10053171
+      Appearance.ColorMirror = 10053171
+      Appearance.ColorMirrorTo = 10053171
+      Appearance.ColorMirrorHot = 10053171
+      Appearance.ColorMirrorHotTo = 10053171
+      Appearance.ColorMirrorDown = 10053171
+      Appearance.ColorMirrorDownTo = 10053171
+      Appearance.ColorMirrorChecked = 16102556
+      Appearance.ColorMirrorCheckedTo = 16768988
+      Appearance.ColorMirrorDisabled = 11974326
+      Appearance.ColorMirrorDisabledTo = 15921906
+    end
+  end
+  object RzPanel2: TRzPanel
+    Left = 8
+    Top = 45
+    Width = 578
+    Height = 76
+    BorderOuter = fsFlatRounded
+    Color = clSilver
+    TabOrder = 3
+    object Label11: TLabel
+      Left = 231
+      Top = 1
+      Width = 103
+      Height = 16
+      Caption = 'Dados da Venda'
+      Color = clBtnFace
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object LblMesa: TLabel
+      Left = 9
+      Top = 27
+      Width = 26
+      Height = 14
+      Caption = 'Mesa'
+      Color = clBtnFace
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label3: TLabel
+      Left = 207
+      Top = 27
+      Width = 38
+      Height = 14
+      Caption = 'Gar'#231'om'
+      Color = clBtnFace
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+    end
+    object Shape7: TShape
+      Left = 8
+      Top = 44
+      Width = 192
+      Height = 23
+      Pen.Color = clTeal
+      Shape = stRoundRect
+    end
+    object Shape8: TShape
+      Left = 207
+      Top = 44
+      Width = 363
+      Height = 23
+      Pen.Color = clTeal
+      Shape = stRoundRect
+    end
+    object ComboMesa: TAdvComboBox
+      Left = 11
+      Top = 45
+      Width = 187
+      Height = 21
+      Color = clWindow
+      Version = '1.6.2.1'
+      Visible = True
+      BorderColor = clWhite
+      EmptyTextStyle = []
+      Ctl3D = True
+      DropWidth = 0
+      Enabled = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ItemIndex = -1
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -11
+      LabelFont.Name = 'Tahoma'
+      LabelFont.Style = []
+      ParentCtl3D = False
+      ParentFont = False
+      TabOrder = 0
+    end
+    object ComboGarcom: TAdvComboBox
+      Left = 209
+      Top = 45
+      Width = 359
+      Height = 21
+      Color = clWindow
+      Version = '1.6.2.1'
+      Visible = True
+      BorderColor = clWhite
+      EmptyTextStyle = []
+      Ctl3D = True
+      DropWidth = 0
+      Enabled = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ItemIndex = -1
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -11
+      LabelFont.Name = 'Tahoma'
+      LabelFont.Style = []
+      ParentCtl3D = False
+      ParentFont = False
+      TabOrder = 1
+    end
+  end
+  object RzPanel3: TRzPanel
+    Left = 8
+    Top = 133
+    Width = 578
+    Height = 76
+    BorderOuter = fsFlatRounded
+    Color = clSilver
+    TabOrder = 4
+    object Label9: TLabel
+      Left = 9
+      Top = 21
+      Width = 33
+      Height = 14
+      Caption = 'C'#243'digo'
+      Color = clBtnFace
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label5: TLabel
+      Left = 60
+      Top = 21
+      Width = 37
+      Height = 14
+      Caption = 'Produto'
+      Color = clBtnFace
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 328
+      Top = 21
+      Width = 23
+      Height = 14
+      Caption = 'Qtde'
+      Color = clBtnFace
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label6: TLabel
+      Left = 377
+      Top = 21
+      Width = 40
+      Height = 14
+      Caption = 'Vlr. Unit.'
+      Color = clBtnFace
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label7: TLabel
+      Left = 523
+      Top = 21
+      Width = 47
+      Height = 14
+      Caption = 'Vlr. Total'
+      Color = clBtnFace
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label12: TLabel
+      Left = 236
+      Top = 1
+      Width = 92
+      Height = 16
+      Caption = 'Item da Venda'
+      Color = clBtnFace
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label10: TLabel
+      Left = 440
+      Top = 21
+      Width = 46
+      Height = 14
+      Caption = 'Desconto'
+      Color = clBtnFace
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+    end
+    object Shape1: TShape
+      Left = 9
+      Top = 37
+      Width = 50
+      Height = 22
+      Pen.Color = clTeal
+      Shape = stRoundRect
+    end
+    object Shape2: TShape
+      Left = 60
+      Top = 37
+      Width = 219
+      Height = 22
+      Pen.Color = clTeal
+      Shape = stRoundRect
+    end
+    object Shape3: TShape
+      Left = 310
+      Top = 37
+      Width = 41
+      Height = 22
+      Pen.Color = clTeal
+      Shape = stRoundRect
+    end
+    object Shape4: TShape
+      Left = 353
+      Top = 37
+      Width = 64
+      Height = 22
+      Pen.Color = clTeal
+      Shape = stRoundRect
+    end
+    object Shape5: TShape
+      Left = 422
+      Top = 37
+      Width = 64
+      Height = 22
+      Pen.Color = clTeal
+      Shape = stRoundRect
+    end
+    object Shape6: TShape
+      Left = 491
+      Top = 37
+      Width = 79
+      Height = 22
+      Pen.Color = clTeal
+      Shape = stRoundRect
+    end
+    object EdtDesProduto: TEdit
+      Left = 62
+      Top = 40
+      Width = 215
+      Height = 17
+      BorderStyle = bsNone
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 1
+      OnExit = EdtCodProdutoExit
+    end
+    object EdtQtde: TAdvEdit
+      Left = 312
+      Top = 40
+      Width = 37
+      Height = 17
+      EditAlign = eaRight
+      EditType = etNumeric
+      EmptyTextStyle = []
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -11
+      LabelFont.Name = 'Tahoma'
+      LabelFont.Style = []
+      Lookup.Font.Charset = DEFAULT_CHARSET
+      Lookup.Font.Color = clWindowText
+      Lookup.Font.Height = -11
+      Lookup.Font.Name = 'Arial'
+      Lookup.Font.Style = []
+      Lookup.Separator = ';'
+      BorderStyle = bsNone
+      Color = clWindow
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 2
+      Text = '0'
+      Visible = True
+      OnChange = EdtQtdeExit
+      OnExit = EdtQtdeExit
+      Version = '3.4.1.1'
+    end
+    object EdtVlrUnit: TAdvEdit
+      Left = 355
+      Top = 40
+      Width = 60
+      Height = 17
+      EditAlign = eaRight
+      EditType = etMoney
+      EmptyTextStyle = []
+      Precision = 2
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -11
+      LabelFont.Name = 'Tahoma'
+      LabelFont.Style = []
+      Lookup.Font.Charset = DEFAULT_CHARSET
+      Lookup.Font.Color = clWindowText
+      Lookup.Font.Height = -11
+      Lookup.Font.Name = 'Arial'
+      Lookup.Font.Style = []
+      Lookup.Separator = ';'
+      BorderStyle = bsNone
+      Color = clWindow
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 3
+      Text = '0,00'
+      Visible = True
+      OnChange = EdtQtdeExit
+      Version = '3.4.1.1'
+    end
+    object EdtVlrTotal: TAdvEdit
+      Left = 493
+      Top = 40
+      Width = 75
+      Height = 17
+      EditAlign = eaRight
+      EditType = etMoney
+      EmptyTextStyle = []
+      Precision = 2
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -11
+      LabelFont.Name = 'Tahoma'
+      LabelFont.Style = []
+      Lookup.Font.Charset = DEFAULT_CHARSET
+      Lookup.Font.Color = clWindowText
+      Lookup.Font.Height = -11
+      Lookup.Font.Name = 'Arial'
+      Lookup.Font.Style = []
+      Lookup.Separator = ';'
+      BorderStyle = bsNone
+      Color = clWindow
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clGreen
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 5
+      Text = '0,00'
+      Visible = True
+      Version = '3.4.1.1'
+    end
+    object EdtCodProduto: TAdvEdit
+      Left = 11
+      Top = 40
+      Width = 46
+      Height = 17
+      EditType = etNumeric
+      EmptyTextStyle = []
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -11
+      LabelFont.Name = 'Tahoma'
+      LabelFont.Style = []
+      Lookup.Font.Charset = DEFAULT_CHARSET
+      Lookup.Font.Color = clWindowText
+      Lookup.Font.Height = -11
+      Lookup.Font.Name = 'Arial'
+      Lookup.Font.Style = []
+      Lookup.Separator = ';'
+      BorderStyle = bsNone
+      Color = clWindow
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      Text = '0'
+      Visible = True
+      OnExit = EdtCodProdutoExit
+      Version = '3.4.1.1'
+    end
+    object EdtDesconto: TAdvEdit
+      Left = 424
+      Top = 40
+      Width = 60
+      Height = 17
+      EditAlign = eaRight
+      EditType = etMoney
+      EmptyTextStyle = []
+      FocusColor = clWhite
+      Precision = 2
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -11
+      LabelFont.Name = 'Tahoma'
+      LabelFont.Style = []
+      Lookup.Font.Charset = DEFAULT_CHARSET
+      Lookup.Font.Color = clWindowText
+      Lookup.Font.Height = -11
+      Lookup.Font.Name = 'Arial'
+      Lookup.Font.Style = []
+      Lookup.Separator = ';'
+      BiDiMode = bdLeftToRight
+      ParentBiDiMode = False
+      BorderStyle = bsNone
+      Color = clWindow
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clMaroon
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 4
+      Text = '0,00'
+      Visible = True
+      OnChange = EdtQtdeExit
+      OnExit = EdtQtdeExit
+      Version = '3.4.1.1'
+    end
+    object BtnPsqPrd: TAdvGlowButton
+      Left = 280
+      Top = 37
+      Width = 22
+      Height = 22
+      Cursor = crHandPoint
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      NotesFont.Charset = DEFAULT_CHARSET
+      NotesFont.Color = clWindowText
+      NotesFont.Height = -11
+      NotesFont.Name = 'Tahoma'
+      NotesFont.Style = []
+      ParentFont = False
+      Picture.Data = {
+        89504E470D0A1A0A0000000D4948445200000018000000180806000000E0773D
+        F80000000473424954080808087C086488000000097048597300000B1300000B
+        1301009A9C180000037D494441544889EDD25D4C5B651CC7F1EF737A5E7B8016
+        B46C5D3BA05BD1221B2613C1972D0C02179B3351774D48CCB2986C77DE183541
+        EEE6153331F1659A25DCC8859724BA1113BA1001217233D994106CC0D1B5EB91
+        7694BE487BBC186C30614517BDF29F3CC9797B7E9FE7F99F47B0A97A7B7BA5E9
+        E9E91E8FC7F3AA2CCB7EC029495236FF473E6A25AC11CBB23E0E87C359FE4689
+        8D8BF6F6F65ABFDFFFE991E6E663AD2D2D665D6D2DA66992CBE558FC6D91C9A9
+        A9FCF8D8F8443C167B7768686874B78003A0B3B3B3A6A6A666F0B5375E6FEF38
+        7E5C75B9DD146D9B5C2EC75AA180D369521FAC77F87CFB6A6FC76E3FEF76B96F
+        CECDCDFDBA5B4034B7360F9C7CE554E781401DABABABA4D32B9B46FAFED0759D
+        EAEA3D7B1696160E9A86F9F5C2C242BE14207774759D6E6A6C3A565559896559
+        0F776E6B09D0748D175B5F7E29762BF636F04149C0535575D257B3BF72259D7E
+        386B47ABBCCC943C1ECF0BA5C201644DD3FCF97C9E6421891012921008404802
+        C48374BB682384C0C6C62E1629AF28F775757599C3C3C3E99DE3415655D52949
+        0E6C1BA048C15E7F53DCBA74B1E55660184E3D994C56028F068A7631A328F2FD
+        895B53379EFCB54F6B6B6B59C330961F150E206733D95B9AAA512816B72C77DB
+        DF2C1E707753A968381C5E290548D168F49B65EBF7E58A8A0A0CC340D5341459
+        46DE188A82AC2828AA8AAE69988641A150B063B1D854A97000C7FCFCFC4F9E6A
+        4FDBA1C387834EC340D734544545D5541445415514744DC3D075545543922446
+        AE5DFBE1C6F5EB6F2D2D2DE54A02002E976B229BC91C7D3A14F29AA689EC9050
+        14054D5151550545BE870821181FFB3E9659C9C62CEBCE44241289EE0A884422
+        96C3E11889C7E3CF7ABDBE6A97DBA5380D0355BDB7032149A452A9C2B757AEFC
+        18BF93BAF9DDF0D5A39F5CBA745A9674DFE4E4F8D5BEBEBE1D818DE3C3E8E8E8
+        2F5EAFB7E3F2E52FCF1F0C044E1965655E5533F4423E9BCFACAEC6171717C333
+        33331FCECECEBA2F5CF868ECCD9E33FB07BF1A3871E6ECF90CF03E60EFA8EC54
+        6D6D6D3ADB9CD19E9EB3E7BE1818BC110A35452EF6F7C70381C0E7DB7DF758E5
+        F707CE85428712807DB1BFDFFE5710E09D868646FB7FE43F4364E009A00E7806
+        3802B4004DC001E049E0BDCD483018FCEC9F6CA31CD8BB8E5501FB806AA01250
+        81FA8686C613B3B33FD3DDDD3DF2387D1280B98EEC05824003F09410E2B94020
+        70379148B4FF0921104CBDA5A2A6BF0000000049454E44AE426082}
+      TabOrder = 6
+      OnClick = BtnPsqPrdClick
+      Appearance.BorderColor = clGray
+      Appearance.Color = clSilver
+      Appearance.ColorTo = clSilver
+      Appearance.ColorChecked = clSilver
+      Appearance.ColorCheckedTo = clSilver
+      Appearance.ColorDisabled = clSilver
+      Appearance.ColorDisabledTo = clSilver
+      Appearance.ColorDown = clSilver
+      Appearance.ColorDownTo = clSilver
+      Appearance.ColorHot = clSilver
+      Appearance.ColorHotTo = clSilver
+      Appearance.ColorMirrorTo = clSilver
+      Appearance.ColorMirrorHot = clSilver
+      Appearance.ColorMirrorHotTo = clSilver
+      Appearance.ColorMirrorDown = clSilver
+      Appearance.ColorMirrorDownTo = clSilver
+      Appearance.ColorMirrorChecked = 16102556
+      Appearance.ColorMirrorCheckedTo = 16768988
+      Appearance.ColorMirrorDisabled = 11974326
+      Appearance.ColorMirrorDisabledTo = 15921906
+    end
+  end
+  object RzPanel4: TRzPanel
+    Left = 8
+    Top = 217
+    Width = 489
+    Height = 139
+    BorderOuter = fsFlatRounded
+    Caption = '3'
+    Color = clSilver
+    TabOrder = 5
+    object GridItens: TDBGrid
+      Left = 2
+      Top = 2
+      Width = 485
+      Height = 135
+      Align = alClient
+      DataSource = DsItemComanda
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Style = []
+      Options = [dgTitles, dgColLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+      ParentFont = False
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      OnDrawColumnCell = GridItensDrawColumnCell
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'PRODUTO'
+          Title.Caption = 'C'#243'digo'
+          Width = 44
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'DESCRICAO'
+          Title.Caption = 'Descri'#231#227'o'
+          Width = 192
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'QUANTIDADE'
+          Title.Alignment = taRightJustify
+          Title.Caption = 'Qtde'
+          Width = 36
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'VALOR'
+          Title.Alignment = taRightJustify
+          Title.Caption = 'Valor'
+          Width = 55
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'DESCONTO'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clMaroon
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Title.Alignment = taRightJustify
+          Title.Caption = 'Desconto'
+          Width = 55
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'VALOR_TOTAL_LIQUIDO'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clGreen
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          Title.Alignment = taRightJustify
+          Title.Caption = 'Total'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -11
+          Title.Font.Name = 'Tahoma'
+          Title.Font.Style = [fsBold]
+          Width = 71
+          Visible = True
+        end>
+    end
+  end
+  object FDQryComanda: TFDQuery
+    CachedUpdates = True
+    Connection = DmBD.DBConexao
+    SchemaAdapter = FDSchemaAdapter
+    SQL.Strings = (
+      'Select *'
+      'From COMANDAS')
+    Left = 56
+    Top = 224
+    object FDQryComandaCODIGO: TFDAutoIncField
+      FieldName = 'CODIGO'
+      Origin = 'CODIGO'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object FDQryComandaDATA_HORA: TSQLTimeStampField
+      FieldName = 'DATA_HORA'
+      Origin = 'DATA_HORA'
+    end
+    object FDQryComandaGARCOM: TIntegerField
+      FieldName = 'GARCOM'
+      Origin = 'GARCOM'
+    end
+    object FDQryComandaMESA: TIntegerField
+      FieldName = 'MESA'
+      Origin = 'MESA'
+    end
+    object FDQryComandaSTATUS: TStringField
+      FieldName = 'STATUS'
+    end
+  end
+  object FDQryItemComanda: TFDQuery
+    CachedUpdates = True
+    IndexFieldNames = 'COMANDA'
+    AggregatesActive = True
+    MasterSource = DsComanda
+    MasterFields = 'CODIGO'
+    DetailFields = 'COMANDA'
+    Connection = DmBD.DBConexao
+    SchemaAdapter = FDSchemaAdapter
+    FetchOptions.AssignedValues = [evDetailCascade]
+    FetchOptions.DetailCascade = True
+    SQL.Strings = (
+      'SELECT ci.CODIGO, ci.COMANDA, ci.PRODUTO,'
+      
+        '       pr.DESCRICAO, ci.VALOR, ci.QUANTIDADE, ci.DESCONTO, ci.VA' +
+        'LOR_TOTAL_LIQUIDO  '
+      'FROM COMANDAS_ITENS ci'
+      '  INNER JOIN PRODUTOS pr ON ci.PRODUTO = pr.CODIGO'
+      'WHERE COMANDA = :CODIGO'
+      ''
+      '')
+    Left = 352
+    Top = 224
+    ParamData = <
+      item
+        Name = 'CODIGO'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
+    object FDQryItemComandaCODIGO: TFDAutoIncField
+      FieldName = 'CODIGO'
+      Origin = 'CODIGO'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object FDQryItemComandaCOMANDA: TIntegerField
+      FieldName = 'COMANDA'
+      Origin = 'COMANDA'
+      Required = True
+    end
+    object FDQryItemComandaPRODUTO: TIntegerField
+      FieldName = 'PRODUTO'
+      Origin = 'PRODUTO'
+      Required = True
+    end
+    object FDQryItemComandaDESCRICAO: TStringField
+      FieldName = 'DESCRICAO'
+      Origin = 'DESCRICAO'
+      ProviderFlags = [pfInWhere]
+      Size = 45
+    end
+    object FDQryItemComandaVALOR: TBCDField
+      FieldName = 'VALOR'
+      Origin = 'VALOR'
+      currency = True
+      Precision = 15
+      Size = 2
+    end
+    object FDQryItemComandaQUANTIDADE: TBCDField
+      FieldName = 'QUANTIDADE'
+      Origin = 'QUANTIDADE'
+      Precision = 15
+      Size = 0
+    end
+    object FDQryItemComandaDESCONTO: TBCDField
+      FieldName = 'DESCONTO'
+      Origin = 'DESCONTO'
+      currency = True
+      Precision = 15
+      Size = 0
+    end
+    object FDQryItemComandaVALOR_TOTAL_LIQUIDO: TBCDField
+      FieldName = 'VALOR_TOTAL_LIQUIDO'
+      Origin = 'VALOR_TOTAL_LIQUIDO'
+      currency = True
+      Precision = 15
+      Size = 2
+    end
+    object FDQryItemComandaSUBTOTAL: TAggregateField
+      FieldName = 'SUBTOTAL'
+      Active = True
+      currency = True
+      DisplayName = ''
+      Expression = 'SUM(VALOR_TOTAL_LIQUIDO)'
+    end
+  end
+  object DsComanda: TDataSource
+    DataSet = FDQryComanda
+    Left = 48
+    Top = 285
+  end
+  object DsItemComanda: TDataSource
+    DataSet = FDQryItemComanda
+    Left = 360
+    Top = 285
+  end
+  object FDSchemaAdapter: TFDSchemaAdapter
+    Left = 200
+    Top = 256
+  end
+  object FDQryPsq: TFDQuery
+    CachedUpdates = True
+    Connection = DmBD.DBConexao
+    SchemaAdapter = FDSchemaAdapter
+    Left = 312
+    Top = 72
+  end
+end

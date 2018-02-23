@@ -1,0 +1,84 @@
+unit UfrmCadPessoasJuridica;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UfrmBasicCrud, Data.DB,
+  System.ImageList, Vcl.ImgList, System.Actions, Vcl.ActnList, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.Buttons,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.Client, FireDAC.Comp.DataSet,
+  Vcl.Mask, Vcl.DBCtrls;
+
+type
+  TFrmCadPessoasJuridica = class(TFrmBasicCrud)
+    FDQuery: TFDQuery;
+    FDQryPai: TFDQuery;
+    FDQryFilho: TFDQuery;
+    DsFilho: TDataSource;
+    FDSchemaAdapter1: TFDSchemaAdapter;
+    FDQryPaiCODIGO: TFDAutoIncField;
+    FDQryPaiRAZAO_SOCIAL: TStringField;
+    FDQryPaiNOME_FANTASIA: TStringField;
+    FDQryPaiCNPJ: TStringField;
+    FDQryPaiPAIS: TStringField;
+    FDQryPaiESTADO: TStringField;
+    FDQryPaiCIDADE: TStringField;
+    FDQryPaiBAIRRO: TStringField;
+    FDQryPaiENDERECO: TStringField;
+    FDQryPaiNUMERO: TStringField;
+    Label2: TLabel;
+    DBEdit1: TDBEdit;
+    Label3: TLabel;
+    DBEdit2: TDBEdit;
+    Label4: TLabel;
+    DBEdit3: TDBEdit;
+    Label5: TLabel;
+    DBEdit4: TDBEdit;
+    Label6: TLabel;
+    DBEdit5: TDBEdit;
+    Label7: TLabel;
+    DBEdit6: TDBEdit;
+    Label8: TLabel;
+    DBEdit7: TDBEdit;
+    Label9: TLabel;
+    DBEdit8: TDBEdit;
+    Label10: TLabel;
+    DBEdit9: TDBEdit;
+    Label11: TLabel;
+    DBEdit10: TDBEdit;
+    GroupBox1: TGroupBox;
+    FDQryFilhoDESCRICAO: TStringField;
+    Button1: TButton;
+    DBComboBox1: TDBComboBox;
+    DBGrid1: TDBGrid;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmCadPessoasJuridica: TFrmCadPessoasJuridica;
+
+implementation
+
+{$R *.dfm}
+
+uses UDmBD;
+
+procedure TFrmCadPessoasJuridica.Button1Click(Sender: TObject);
+begin
+  if FDQryPai.State in [dsInsert] then
+    FDQryPai.Post;
+
+  FDQryFilho.Insert;
+ // FDQryFilho.FieldByName('DESCRICAO').AsString := ComboBox1.Text;
+  FDQryFilho.Post;
+
+end;
+
+end.

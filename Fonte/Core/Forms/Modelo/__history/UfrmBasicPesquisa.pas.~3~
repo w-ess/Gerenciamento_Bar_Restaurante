@@ -1,0 +1,29 @@
+unit UfrmBasicPesquisa;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UfrmBasic, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TFrmBasicPesquisa = class(TFrmBasic)
+    PnCaption: TPanel;
+    Image1: TImage;
+    Label1: TLabel;
+    Panel1: TPanel;
+    Panel2: TPanel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmBasicPesquisa: TFrmBasicPesquisa;
+
+implementation
+
+{$R *.dfm}
+
+end.

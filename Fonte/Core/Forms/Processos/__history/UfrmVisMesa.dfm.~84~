@@ -1,0 +1,444 @@
+inherited FrmVisMesa: TFrmVisMesa
+  Caption = 'Mesas'
+  ClientHeight = 463
+  ClientWidth = 649
+  Position = poMainFormCenter
+  OnCreate = FormCreate
+  ExplicitWidth = 665
+  ExplicitHeight = 502
+  PixelsPerInch = 96
+  TextHeight = 13
+  object PnCaption: TPanel
+    Left = 0
+    Top = 0
+    Width = 649
+    Height = 39
+    Align = alTop
+    Color = clMaroon
+    ParentBackground = False
+    TabOrder = 0
+    object Image1: TImage
+      Left = 1
+      Top = 1
+      Width = 101
+      Height = 37
+      Align = alLeft
+      ExplicitTop = -63
+      ExplicitHeight = 533
+    end
+    object Mesas: TLabel
+      AlignWithMargins = True
+      Left = 105
+      Top = 11
+      Width = 41
+      Height = 24
+      Margins.Top = 10
+      Align = alLeft
+      Caption = 'Mesas'
+      Color = clMaroon
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      ExplicitHeight = 16
+    end
+  end
+  object DBCtrlGrid1: TDBCtrlGrid
+    Left = 6
+    Top = 45
+    Width = 410
+    Height = 354
+    ColCount = 3
+    Color = clBtnHighlight
+    DataSource = DataSource
+    PanelHeight = 118
+    PanelWidth = 131
+    ParentColor = False
+    TabOrder = 1
+    OnPaintPanel = DBCtrlGrid1PaintPanel
+    object Panel1: TPanel
+      AlignWithMargins = True
+      Left = 3
+      Top = 3
+      Width = 125
+      Height = 112
+      Align = alClient
+      TabOrder = 0
+      object Image2: TImage
+        Left = 1
+        Top = 1
+        Width = 123
+        Height = 56
+        Align = alTop
+        Center = True
+        Picture.Data = {
+          0954506E67496D61676589504E470D0A1A0A0000000D49484452000000300000
+          003008060000005702F9870000000473424954080808087C0864880000000970
+          48597300000B1300000B1301009A9C18000007204944415478DACD5A6B6C1455
+          14FEEECCCE76DB6E5B5A2D6FABD06D29D80702A2A831FA037441242A41AD4862
+          34CA4390F88E31D1688C119F159F511343144D45092ADD8AEF37A1ADD82E6A1F
+          5B62A8A022A585BEB6BB3BF77AEE6E8BDDB26567A6BBE097349DE9CC3DF7FBEE
+          3DE7DC73EF94210198B6E3B7897A287829C0CE6774CB19F215209B7338E57345
+          4137073A14709F80D204C677DA84F665A37BC69FA3ED9B596DE8AAFA29174C2B
+          671C2BA06096252302756062130BDA37375F5974E8A408C8AFF69E41A4EF6582
+          DF4243EBB03C74D1E8A3D97A4DE1A10D2D8BCFD99F1401AEAAE614C6FAEFA2CB
+          07E9273541C487A35708F1A8BD5B79E6D765C581840928AC6E28E28255D2CB25
+          49221E050134A8E0CB9ADC654DA316E0AADAB39446E54D0AC4F493417E10E452
+          3DD4E78A1677C9079605147AF6AC115CDF48BE6E39D847A9420885ADF6B94B5F
+          312DC055E55DCD185E3C25C4874140AC1A49444C01D26D98D02B4FD9C80F07CD
+          0418BBA66561E9D6B80264C0EA3AAB3DD93E1F5F03EFD62066372E9AD93CA200
+          992AC1FA6B12916D2E38CD8957679F19BEBEB9F677EC3ADC930811F5293DEADC
+          A129364A4081C7FB00FD7A6CB41D8DD1542C1E9781F2BC1CF8758E57F61EC2D7
+          ED3DF093278C1664E13E9FBB64C37102E40AAB08C8BC6B7A9192469610E1E579
+          D97065A422CDAE1D7BD6B6FF4064F4A8E7B67E1DBB7B82F8B4A31F8D7DBA550D
+          BD8A6A2B685A30FD40940097C7FB3CDDAC356BEDC29C546C387B1272D3635715
+          830286A3B62B8817FEEC0D8B320FF16C8BBBF4CE63026461C684BACF6C6DB37E
+          4A0E56164E80C2464E56230990E8A36979BCAD07DF1F355435443565412D4F16
+          8011011EEF1D74F19C190BABCECCC6FAE993E22EE5271220A10B81077FEFC6AE
+          EEA039094CAC6DB9BCF48570FF05DBBD75664AE2E28C14BC372F1F2AE5DA7888
+          2740A24B17B8B9B913ED21E3412EC06B7CEEB2B94C6E46B81E3255C256CF3B0B
+          53B39C86DE352240624747004FFCD16D8606429A18CF5C550D3730C6DE32DA68
+          66A6039517B80C7762548074A5E54D477030C80DDBA67DC97524C0BB9162F076
+          A38D5E2F9B888B27E4245C40D8F65F7D78E79F3EC3EF43880A5650E5DD419138
+          DF689B9A4B0A91E5B027458097D688F57BBBCC08A866F91E6F2B85E25423EFDB
+          69AABC0B66505D65BCC633232040317CC52F1D61773206DECAA87C384C57D946
+          5E9F93E5C0E679C6FDDFAC0089EB1B3B0DC701D546ED2C7FBB3740D95033D260
+          F158279E9E75565205DCE63B029FC1328383070C0BF862EE6464D8E2E7FD44A0
+          9366607ECD1FC6041875A1278A7291A146FB7E56D08FACBE3EECCB34E481C790
+          11E8478EBF17475252D199727CF5D219E278A029FE3151C4854C04F15038682D
+          ACE16D9408042D28765C81F138C04F1CDC37D9FAB05674C2160CCA0C02D86C28
+          1593CC763D54820CE2FA4F00658195E61F6BEDC8F34756CFA03D05E7EAE3112B
+          FC341AA16DEA214CF60FD9D410F9356C2CBEE586C22F36641AB55A464B6412B1
+          EFF4B6F01988449D230B3705C744BD334509610B3B048DDC468251C089B434DC
+          101803AFAE5A271F1150C15CD5F5E54C286F5BB5F183ED209CFD03AB27915B6A
+          9B8C663DE24A2BC865EE0EB5539D405985D60EC5E10027F2E55D69D8A38F3E21
+          70886B5991E7D7093A7473B96E08B6688751E81FB27A926BECB33990CB43480D
+          F823A36EB7434D4F474855517E343521E42574451F1729A7ABBCB5544ECCB662
+          6493D68199FEA3B11F1261495C0A08D16D22C9732E76B52E2A3D2F22C0D3B08E
+          C6A9C28AA1AD3403F9FEE8FA45961A8A24EE88A4C844930FF701767BB3BBF8C5
+          B080C20F1B4F175A701F2C6CE87F54FF46FA80AB840D136985FC9C0D6C769241
+          9ED0ABDAD4BCC6F933DAFF3B95D8EEADA03ED799B1A27675E23B6737D2B90EA6
+          69509DCEB0DB0C2249E4E512F28C6F61C95DE1011BFC63C147BB275100CA53AF
+          342346EC6D3E646F7D0376CA404FAE5E83D2C913A39E278BBC3CB5D614B560F0
+          F3D4B093B986FBC97F1F8F6724ADF61B647DF17E243D0EE0AA2BAFC19A8BE686
+          0D268B7C1802F7B42C2C796AF0364AC08CCA3DF6408690478BA523C9CFFA7C0B
+          52EB77C67C3CBDE41C3CB2740956F53A93431E6277666EE0BCBA39738E1D611C
+          57BC4CF3D44F0B71A5EE7F77B80BDE05A6CE6ABDBCD837F4EF31AB2FAA50AFA6
+          D1DEF2BF395E9775277075ABBB6CDBF027237FE0F034ACA45CFBF2A9A61EE1CF
+          6E6D5954FC5AAC47271CE1B0082E5E3A75334103CFD59523918F2B40A2A0AAE1
+          2A2EC42645518C9D64258ABAF479E0C6586E634A8044D1F69F0B83609524A2EC
+          E4D017BB3953960D0F58CB02240652EC7A6AF0100C2E766611FEB4CAF070E6D8
+          FE8AA1A93221020611394B0DDE4D4D5722715FEC7BA93C78D9C6D4A7CDFE0388
+          E5E00C1780F6C075B4275E41B5E7B9566CC8925855944D8A4D79571666566C24
+          24BB4CF9AC619CD6CF2E114CCCA3DB6960A280DC610C14644498A28B16C64E08
+          D642774DB4F7FF4128FCABBD97CD3C38DABEFF05BAEFDFA3AAD3E07800000000
+          49454E44AE426082}
+        ExplicitWidth = 122
+      end
+      object dbtxtMesa: TDBText
+        Left = 20
+        Top = 65
+        Width = 82
+        Height = 17
+        Alignment = taCenter
+        DataField = 'DESCRICAO'
+        DataSource = DataSource
+      end
+      object dbtxtStatus: TDBText
+        Left = 16
+        Top = 79
+        Width = 88
+        Height = 17
+        Alignment = taCenter
+        DataField = 'STATUS_MESA'
+        DataSource = DataSource
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 405
+    Width = 649
+    Height = 58
+    Align = alBottom
+    Color = clMaroon
+    ParentBackground = False
+    TabOrder = 2
+    object BtnAtualiza: TAdvGlowButton
+      Left = 6
+      Top = 6
+      Width = 120
+      Height = 45
+      Cursor = crHandPoint
+      Caption = 'ATUALIZAR (F4)'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      NotesFont.Charset = DEFAULT_CHARSET
+      NotesFont.Color = clWindowText
+      NotesFont.Height = -11
+      NotesFont.Name = 'Tahoma'
+      NotesFont.Style = []
+      ParentFont = False
+      TabOrder = 0
+      Appearance.BorderColor = clWhite
+      Appearance.BorderColorFocused = clRed
+      Appearance.Color = 10053171
+      Appearance.ColorTo = 10053171
+      Appearance.ColorChecked = 10053171
+      Appearance.ColorCheckedTo = 10053171
+      Appearance.ColorDisabled = 10053171
+      Appearance.ColorDisabledTo = 10053171
+      Appearance.ColorDown = 10053171
+      Appearance.ColorDownTo = 10053171
+      Appearance.ColorHot = 10053171
+      Appearance.ColorHotTo = 10053171
+      Appearance.ColorMirror = 10053171
+      Appearance.ColorMirrorTo = 10053171
+      Appearance.ColorMirrorHot = 10053171
+      Appearance.ColorMirrorHotTo = 10053171
+      Appearance.ColorMirrorDown = 10053171
+      Appearance.ColorMirrorDownTo = 10053171
+      Appearance.ColorMirrorChecked = 16102556
+      Appearance.ColorMirrorCheckedTo = 16768988
+      Appearance.ColorMirrorDisabled = 11974326
+      Appearance.ColorMirrorDisabledTo = 15921906
+    end
+  end
+  object CurvyPanel1: TCurvyPanel
+    Left = 432
+    Top = 45
+    Width = 209
+    Height = 354
+    TabOrder = 3
+    object Shape8: TShape
+      Left = 6
+      Top = 14
+      Width = 198
+      Height = 40
+      Pen.Color = clTeal
+      Shape = stRoundRect
+    end
+    object Label4: TLabel
+      Left = 11
+      Top = 16
+      Width = 25
+      Height = 13
+      Caption = 'Mesa'
+    end
+    object DBText3: TDBText
+      Left = 15
+      Top = 30
+      Width = 179
+      Height = 17
+      Alignment = taCenter
+      DataField = 'MESA'
+      DataSource = dsInfCom
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label1: TLabel
+      Left = 11
+      Top = 65
+      Width = 36
+      Height = 13
+      Caption = 'Gar'#231'om'
+    end
+    object DBText1: TDBText
+      Left = 11
+      Top = 81
+      Width = 177
+      Height = 17
+      DataField = 'GARCOM'
+      DataSource = dsInfCom
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object RzLine1: TRzLine
+      Left = 2
+      Top = 86
+      Width = 203
+      Height = 20
+    end
+    object Label2: TLabel
+      Left = 11
+      Top = 105
+      Width = 35
+      Height = 13
+      Caption = 'Hor'#225'rio'
+    end
+    object DBText2: TDBText
+      Left = 11
+      Top = 122
+      Width = 177
+      Height = 17
+      DataField = 'DATA_HORA'
+      DataSource = dsInfCom
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object RzLine2: TRzLine
+      Left = 1
+      Top = 130
+      Width = 203
+      Height = 20
+    end
+    object Label3: TLabel
+      Left = 11
+      Top = 150
+      Width = 24
+      Height = 13
+      Caption = 'Valor'
+    end
+    object DBText4: TDBText
+      Left = 11
+      Top = 167
+      Width = 177
+      Height = 17
+      DataField = 'VALOR'
+      DataSource = dsInfCom
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object RzLine3: TRzLine
+      Left = 0
+      Top = 175
+      Width = 203
+      Height = 20
+    end
+  end
+  object FDQryMesas: TFDQuery
+    Connection = DmBD.DBConexao
+    SQL.Strings = (
+      'SELECT'
+      'A.CODIGO,'
+      'A.DESCRICAO,'
+      #39'OCUPADA'#39' AS STATUS_MESA'
+      'FROM MESAS A JOIN'
+      'COMANDAS   B ON B.MESA = A.CODIGO'
+      'WHERE B.STATUS = '#39'A'#39
+      '  AND B.MESA IS NOT NULL '
+      ''
+      'UNION'
+      ''
+      'SELECT'
+      'A.CODIGO,'
+      'A.DESCRICAO,'
+      #39'LIVRE'#39'      AS STATUS_MESA'
+      'FROM MESAS A '
+      'WHERE A.CODIGO NOT IN ('
+      'SELECT'
+      'A.CODIGO'
+      'FROM MESAS A JOIN'
+      'COMANDAS B ON B.MESA = A.CODIGO'
+      'WHERE B.STATUS = '#39'A'#39
+      'AND B.MESA IS NOT NULL '
+      ')'
+      'ORDER BY A.DESCRICAO')
+    Left = 288
+    Top = 192
+    object FDQryMesasCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = 'CODIGO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = True
+      Required = True
+    end
+    object FDQryMesasDESCRICAO: TStringField
+      FieldName = 'DESCRICAO'
+      Origin = 'DESCRICAO'
+      Required = True
+    end
+    object FDQryMesasSTATUS_MESA: TStringField
+      FieldName = 'STATUS_MESA'
+      Origin = 'STATUS_MESA'
+      ReadOnly = True
+      Required = True
+      Size = 7
+    end
+  end
+  object DataSource: TDataSource
+    DataSet = FDQryMesas
+    Left = 352
+    Top = 192
+  end
+  object FDQryCom: TFDQuery
+    MasterSource = DataSource
+    MasterFields = 'CODIGO'
+    Connection = DmBD.DBConexao
+    SQL.Strings = (
+      'SELECT '
+      'D.DESCRICAO AS MESA,'
+      'A.DATA_HORA,'
+      'B.VALOR,'
+      'C.NOME      AS GARCOM'
+      'FROM COMANDAS A'
+      'LEFT JOIN COMANDAS_ITENS B ON B.COMANDA = A.CODIGO'
+      '     JOIN GARCONS        C ON C.CODIGO  = A.GARCOM'
+      '     JOIN MESAS          D ON D.CODIGO  = A.MESA'
+      'WHERE A.CODIGO = :CODIGO')
+    Left = 328
+    Top = 304
+    ParamData = <
+      item
+        Name = 'CODIGO'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
+    object FDQryComMESA: TStringField
+      FieldName = 'MESA'
+      Origin = 'MESA'
+      Required = True
+    end
+    object FDQryComGARCOM: TStringField
+      FieldName = 'GARCOM'
+      Origin = 'GARCOM'
+      Required = True
+      Size = 45
+    end
+    object FDQryComDATA_HORA: TSQLTimeStampField
+      FieldName = 'DATA_HORA'
+      Origin = 'DATA_HORA'
+    end
+    object FDQryComVALOR: TBCDField
+      FieldName = 'VALOR'
+      Origin = 'VALOR'
+      currency = True
+      Precision = 15
+      Size = 2
+    end
+  end
+  object dsInfCom: TDataSource
+    DataSet = FDQryCom
+    Left = 392
+    Top = 304
+  end
+end

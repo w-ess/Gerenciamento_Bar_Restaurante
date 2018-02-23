@@ -1,0 +1,44 @@
+program SisVenda;
+
+uses
+  Vcl.Forms,
+  SysUtils,
+  UPrincipal in '..\Forms\Principal\UPrincipal.pas' {FrmPrincipal},
+  ULogin in '..\Forms\Login\ULogin.pas' {FrmLogin},
+  UDmBD in '..\DataModule\UDmBD.pas' {DmBD: TDataModule},
+  USplash in '..\Forms\Splash\USplash.pas' {FSplash},
+  UBiblioteca in '..\Classes\UBiblioteca.pas',
+  UConfigBanco in 'UConfigBanco.pas' {FrmConfigBanco},
+  Vcl.Themes,
+  Vcl.Styles,
+  UfrmBasic in '..\Forms\Modelo\UfrmBasic.pas' {FrmBasic},
+  UfrmBasicCrud in '..\Forms\Modelo\UfrmBasicCrud.pas' {FrmBasicCrud},
+  UfrmCadUsuario in '..\Forms\Cadastro\UfrmCadUsuario.pas' {FrmCadUsuario},
+  UfrmCadGarcom in '..\Forms\Cadastro\UfrmCadGarcom.pas' {FrmCadGarcom},
+  UfrmVisMesa in '..\Forms\Processos\UfrmVisMesa.pas' {FrmVisMesa},
+  UfrmCadPessoasFisicas in '..\Forms\Cadastro\UfrmCadPessoasFisicas.pas' {FrmCadPessoaFisica},
+  UDmLookup in '..\DataModule\UDmLookup.pas' {DmLookup: TDataModule},
+  UfrmVenda in '..\Forms\View\UfrmVenda.pas' {FrmVenda},
+  UfrmCadVenda in '..\Forms\Cadastro\UfrmCadVenda.pas' {FrmCadVenda},
+  UfrmBasicPesquisa in '..\Forms\Pesquisa\UfrmBasicPesquisa.pas' {FrmBasicPesquisa},
+  UfrmConfVenda in '..\Forms\Processos\UfrmConfVenda.pas' {FrmConfVenda},
+  UfrmBasicCrudMasterDetail in '..\Forms\Modelo\UfrmBasicCrudMasterDetail.pas' {FrmBasic1};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+
+  FSplash := TFSplash.Create(Application);
+  FSplash.Show;
+  FSplash.Refresh;
+  Sleep(2000);
+  FSplash.Release;
+
+  Application.CreateForm(TDmBD, DmBD);
+  Application.CreateForm(TFrmPrincipal, FrmPrincipal);
+  Application.CreateForm(TFrmBasicPesquisa, FrmBasicPesquisa);
+  Application.CreateForm(TFrmBasic1, FrmBasic1);
+  Application.Run;
+end.

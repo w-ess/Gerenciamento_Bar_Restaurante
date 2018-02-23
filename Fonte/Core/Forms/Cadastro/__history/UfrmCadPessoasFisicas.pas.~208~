@@ -1,0 +1,151 @@
+unit UfrmCadPessoasFisicas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UfrmBasicCrud, Data.DB,
+  System.ImageList, Vcl.ImgList, System.Actions, Vcl.ActnList, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.Buttons,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
+  Vcl.Mask, Vcl.DBCtrls;
+
+type
+  TFrmCadPessoaFisica = class(TFrmBasicCrud)
+    FDQuery: TFDQuery;
+    FDQryCadPessoFisica: TFDQuery;
+    FDQryCadPessoFisicaCODIGO: TFDAutoIncField;
+    FDQryCadPessoFisicaNOME: TStringField;
+    FDQryCadPessoFisicaRG: TStringField;
+    FDQryCadPessoFisicaCPF: TStringField;
+    DsClass: TDataSource;
+    Label2: TLabel;
+    DBEdit1: TDBEdit;
+    Label3: TLabel;
+    DBEdit2: TDBEdit;
+    Label4: TLabel;
+    DBEdit3: TDBEdit;
+    Label5: TLabel;
+    DBEdit4: TDBEdit;
+    Panel: TGroupBox;
+    DBGrid1: TDBGrid;
+    FDSchemaAdapter1: TFDSchemaAdapter;
+    FDQryClass: TFDQuery;
+    FDQryClassDESCRICAO: TStringField;
+    FDQryClassCODIGO: TFDAutoIncField;
+    FDQryClassPESSOA_FISICA: TIntegerField;
+    FDQryClassPESSOA_JURIDICA: TIntegerField;
+    FDQryCadPessoFisicaPAIS: TStringField;
+    FDQryCadPessoFisicaESTADO: TStringField;
+    FDQryCadPessoFisicaCIDADE: TStringField;
+    FDQryCadPessoFisicaBAIRRO: TStringField;
+    FDQryCadPessoFisicaENDERECO: TStringField;
+    FDQryCadPessoFisicaNUMERO: TStringField;
+    GroupBox1: TGroupBox;
+    Label6: TLabel;
+    DBEdit5: TDBEdit;
+    Label7: TLabel;
+    DBEdit6: TDBEdit;
+    Label8: TLabel;
+    DBEdit7: TDBEdit;
+    Label9: TLabel;
+    DBEdit8: TDBEdit;
+    procedure ActIncluirExecute(Sender: TObject);
+    procedure ActAlterarExecute(Sender: TObject);
+    procedure ActSalvarExecute(Sender: TObject);
+    procedure ActCancelarExecute(Sender: TObject);
+    procedure ActExcluirExecute(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure ActIncluirUpdate(Sender: TObject);
+  private
+    { Private declarations }
+    procedure LimparCache(Sender: TObject);
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmCadPessoaFisica: TFrmCadPessoaFisica;
+
+implementation
+
+{$R *.dfm}
+
+uses UDmBD, UBiblioteca;
+
+procedure TFrmCadPessoaFisica.ActAlterarExecute(Sender: TObject);
+begin
+  //inherited;
+  if FDQuery.RecordCount > 0 then
+    begin
+      FDQryCadPessoFisica.Edit;
+      FDQryClass.Edit;
+      PageControl.ActivePage := TabCrud;
+      Panel.Visible := true;
+    end;
+end;
+
+procedure TFrmCadPessoaFisica.ActCancelarExecute(Sender: TObject);
+begin
+  inherited;
+  Panel.Visible := false;
+end;
+
+procedure TFrmCadPessoaFisica.ActExcluirExecute(Sender: TObject);
+begin
+  //inherited;
+  if FDQuery.RecordCount > 0 then
+    if pergunta('Confirma a edição do registro?') then
+      begin
+        FDQryCadPessoFisica.Delete;
+        FDSchemaAdapter1.ApplyUpdates(0);
+        FDQuery.Refresh;
+        PageControl.ActivePage := TabQuery;
+      end;
+end;
+
+procedure TFrmCadPessoaFisica.ActIncluirExecute(Sender: TObject);
+begin
+  inherited;
+  FDQryCadPessoFisica.Insert;
+  Panel.Visible := false;
+end;
+
+procedure TFrmCadPessoaFisica.ActIncluirUpdate(Sender: TObject);
+begin
+  //inherited;
+
+end;
+
+procedure TFrmCadPessoaFisica.ActSalvarExecute(Sender: TObject);
+begin
+  //inherited;
+  if FDQryCadPessoFisica.State in [dsInsert, dsEdit] then
+    FDQryCadPessoFisica.Post;
+
+  if FDQryClass.State in [dsInsert, dsEdit] then
+    FDQryClass.Post;
+
+  FDSchemaAdapter1.ApplyUpdates(0);
+
+  FDQuery.Refresh;
+  PageControl.ActivePage := TabQuery;
+end;
+
+procedure TFrmCadPessoaFisica.FormCreate(Sender: TObject);
+begin
+  inherited;
+  FDSchemaAdapter1.AfterApplyUpdate := LimparCache;
+  FDQryCadPessoFisica.Open;
+  FDQryClass.Open;
+end;
+
+procedure TFrmCadPessoaFisica.LimparCache;
+begin
+  FDQryCadPessoFisica.CommitUpdates();
+  FDQryClass.CommitUpdates();
+end;
+
+end.

@@ -1,0 +1,123 @@
+unit UPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
+  FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.MSSQL,
+  FireDAC.Phys.MSSQLDef, FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client,
+  AdvToolBar, AdvToolBarStylers, AdvOfficeStatusBar, AdvOfficeStatusBarStylers,
+  Vcl.Imaging.pngimage, Vcl.ExtCtrls, UBiblioteca;
+
+type
+  TFrmPrincipal = class(TForm)
+    AdvToolBarOfficeStyler1: TAdvToolBarOfficeStyler;
+    AdvOfficeStatusBar1: TAdvOfficeStatusBar;
+    AdvOfficeStatusBarOfficeStyler1: TAdvOfficeStatusBarOfficeStyler;
+    AdvToolBarPager1: TAdvToolBarPager;
+    AdvToolBarPager11: TAdvPage;
+    AdvToolBarPager12: TAdvPage;
+    AdvToolBarPager13: TAdvPage;
+    Image1: TImage;
+    AdvPage1: TAdvPage;
+    AdvToolBar1: TAdvToolBar;
+    BtnUsuario: TAdvToolBarButton;
+    AdvToolBarSeparator2: TAdvToolBarSeparator;
+    BtnPessoaFisica: TAdvToolBarButton;
+    BtnGarcom: TAdvToolBarButton;
+    AdvToolBar2: TAdvToolBar;
+    BtnVenda: TAdvToolBarButton;
+    BtnCtReceb: TAdvToolBarButton;
+    BtnMesa: TAdvToolBarButton;
+    AdvToolBarButton1: TAdvToolBarButton;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
+    procedure BtnUsuarioClick(Sender: TObject);
+    procedure BtnMesaClick(Sender: TObject);
+    procedure BtnVendaClick(Sender: TObject);
+    procedure BtnGarcomClick(Sender: TObject);
+    procedure BtnPessoaFisicaClick(Sender: TObject);
+    procedure BtnCtRecebClick(Sender: TObject);
+  private
+    { Private declarations }
+    procedure CarregarModuloDados;
+    procedure ConfigurarInicio;
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmPrincipal: TFrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+uses UDmBD, USplash, UfrmCadUsuario, UfrmCadGarcom, UfrmVisMesa,
+     UfrmVenda, FrmCadPessoasJuridica;
+
+{ TFrmPrincipal }
+
+
+procedure TFrmPrincipal.BtnGarcomClick(Sender: TObject);
+begin
+  ShowModalForm(TFrmCadGarcom, FrmCadGarcom);
+end;
+
+procedure TFrmPrincipal.BtnMesaClick(Sender: TObject);
+begin
+  Application.CreateForm(TFrmVisMesa, FrmVisMesa);
+  FrmVisMesa.Show;
+end;
+
+procedure TFrmPrincipal.BtnPessoaFisicaClick(Sender: TObject);
+begin
+  //ShowModalForm(TFrmCadPessoaFisica, FrmCadPessoaFisica);
+end;
+
+procedure TFrmPrincipal.BtnCtRecebClick(Sender: TObject);
+begin
+  ShowModalForm(TFrmCadPessoaJuridica, FrmCadPessoaJuridica);
+end;
+
+procedure TFrmPrincipal.BtnUsuarioClick(Sender: TObject);
+begin
+  ShowModalForm(TFrmCadUsuario, FrmCadUsuario);
+end;
+
+procedure TFrmPrincipal.BtnVendaClick(Sender: TObject);
+begin
+  ShowForm(TFrmVenda, FrmVenda);
+end;
+
+procedure TFrmPrincipal.CarregarModuloDados;
+begin
+  // Carregar na memória DATAMODULE
+end;
+
+procedure TFrmPrincipal.ConfigurarInicio;
+begin
+
+  // Acessa tela de Login
+  //ShowModalForm(TFrmLogin, FrmLogin);
+end;
+
+procedure TFrmPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  DmBD.Free;
+end;
+
+procedure TFrmPrincipal.FormCreate(Sender: TObject);
+begin
+  Try
+    Cursor :=crSQLWait;
+    CarregarModuloDados;
+    ConfigurarInicio;
+  Finally
+    Cursor :=crDefault;
+  End;
+end;
+
+end.

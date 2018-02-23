@@ -1,0 +1,49 @@
+unit UfrmBasicPesquisa;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UfrmBasic, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Data.DB, Vcl.Grids, Vcl.DBGrids, System.Actions, Vcl.ActnList,
+  System.ImageList, Vcl.ImgList;
+
+type
+  TFrmBasicPesquisa = class(TFrmBasic)
+    PnCaption: TPanel;
+    Image1: TImage;
+    Label1: TLabel;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    DBGrid1: TDBGrid;
+    Img: TImageList;
+    ActionList1: TActionList;
+    ActIncluir: TAction;
+    ActAlterar: TAction;
+    ActExcluir: TAction;
+    ActCancelar: TAction;
+    ActSalvar: TAction;
+    AcrSair: TAction;
+    ActImprimir: TAction;
+    ActVisualizar: TAction;
+    ActAnterior: TAction;
+    ActProximo: TAction;
+    ActPrimeiro: TAction;
+    ActUltimo: TAction;
+    ImgAction: TImageList;
+    EdtPesquisa: TButtonedEdit;
+    Label2: TLabel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmBasicPesquisa: TFrmBasicPesquisa;
+
+implementation
+
+{$R *.dfm}
+
+end.

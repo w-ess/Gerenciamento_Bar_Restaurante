@@ -1,0 +1,26 @@
+unit UfrmCadPessoaJuridica;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UfrmBasicCrudMasterDetail, Data.DB,
+  System.ImageList, Vcl.ImgList, System.Actions, Vcl.ActnList, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.Buttons;
+
+type
+  TFrmCadPessoaJuridca = class(TFrmBasicCrudMasterDetail)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmCadPessoaJuridca: TFrmCadPessoaJuridca;
+
+implementation
+
+{$R *.dfm}
+
+end.

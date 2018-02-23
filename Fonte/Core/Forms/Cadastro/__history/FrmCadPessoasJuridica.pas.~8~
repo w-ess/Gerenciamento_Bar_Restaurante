@@ -1,0 +1,148 @@
+unit FrmCadPessoasJuridica;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UfrmBasicCrudMasterDetail, Data.DB,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, System.ImageList, Vcl.ImgList,
+  System.Actions, Vcl.ActnList, Vcl.Grids, Vcl.DBGrids, Vcl.ExtCtrls,
+  Vcl.ComCtrls, Vcl.Buttons, Vcl.Imaging.pngimage;
+
+type
+  TFrmCadPessoaJuridica = class(TFrmBasicCrudMasterDetail)
+    DsFilho: TDataSource;
+    FDQryFilho: TFDQuery;
+    FDQryFilhoDESCRICAO: TStringField;
+    FDQryFilhoPESSOA_JURIDICA: TIntegerField;
+    FDSchemaAdapter1: TFDSchemaAdapter;
+    FDQryPai: TFDQuery;
+    FDQryPaiCODIGO: TFDAutoIncField;
+    FDQryPaiRAZAO_SOCIAL: TStringField;
+    FDQryPaiNOME_FANTASIA: TStringField;
+    FDQryPaiCNPJ: TStringField;
+    FDQryPaiPAIS: TStringField;
+    FDQryPaiESTADO: TStringField;
+    FDQryPaiCIDADE: TStringField;
+    FDQryPaiBAIRRO: TStringField;
+    FDQryPaiENDERECO: TStringField;
+    FDQryPaiNUMERO: TStringField;
+    FDQuery: TFDQuery;
+    Label2: TLabel;
+    Label3: TLabel;
+    DBEdit2: TDBEdit;
+    DBEdit1: TDBEdit;
+    DBEdit3: TDBEdit;
+    Label4: TLabel;
+    DBEdit4: TDBEdit;
+    Label5: TLabel;
+    Label6: TLabel;
+    DBEdit5: TDBEdit;
+    DBEdit6: TDBEdit;
+    Label7: TLabel;
+    Label8: TLabel;
+    DBEdit7: TDBEdit;
+    Label11: TLabel;
+    DBEdit10: TDBEdit;
+    DBEdit8: TDBEdit;
+    Label9: TLabel;
+    DBEdit9: TDBEdit;
+    Label10: TLabel;
+    GroupBox1: TGroupBox;
+    Button1: TButton;
+    DBGrid1: TDBGrid;
+    ComboBox1: TComboBox;
+    procedure Button1Click(Sender: TObject);
+    procedure ActSalvarExecute(Sender: TObject);
+    procedure TabCrudShow(Sender: TObject);
+    procedure ActCancelarExecute(Sender: TObject);
+    procedure ActIncluirExecute(Sender: TObject);
+    procedure TabQueryShow(Sender: TObject);
+  private
+    { Private declarations }
+    procedure LimparCache(Sender: TObject);
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmCadPessoaJuridica: TFrmCadPessoaJuridica;
+
+implementation
+
+{$R *.dfm}
+
+uses UDmBD, UBiblioteca;
+
+procedure TFrmCadPessoaJuridica.ActCancelarExecute(Sender: TObject);
+begin
+  inherited;
+  FDSchemaAdapter1.CancelUpdates;
+  PageControl.ActivePage := TabQuery;
+end;
+
+procedure TFrmCadPessoaJuridica.ActIncluirExecute(Sender: TObject);
+begin
+  inherited;
+  DBEdit1.Color := clBtnFace;
+  DBEdit1.Font.Color := clBtnFace;
+  DBEdit2.SetFocus;
+end;
+
+procedure TFrmCadPessoaJuridica.ActSalvarExecute(Sender: TObject);
+begin
+  inherited;
+  FDSchemaAdapter1.ApplyUpdates(0);
+  FDQuery.Refresh;
+  PageControl.ActivePage := TabQuery;
+end;
+
+procedure TFrmCadPessoaJuridica.Button1Click(Sender: TObject);
+begin
+  inherited;
+  if FDQryPai.State in [dsInsert] then
+    FDQryPai.Post;
+
+  FDQryFilho.First;
+  if not FDQryFilho.Eof then
+    begin
+      if FDQryFilho.FieldByName('DESCRICAO').AsString = ComboBox1.Text then
+        begin
+          Atencao('A Classificação já existe para essa pessoa!');
+          ComboBox1.SetFocus;
+          Abort;
+        end;
+      FDQryFilho.Next;
+    end;
+
+
+  FDQryFilho.Insert;
+  FDQryFilho.FieldByName('DESCRICAO').AsString := ComboBox1.Text;
+  FDQryFilho.Post;
+end;
+
+procedure TFrmCadPessoaJuridica.LimparCache(Sender: TObject);
+begin
+  FDQryPai.CommitUpdates();
+  FDQryFilho.CommitUpdates();
+end;
+
+procedure TFrmCadPessoaJuridica.TabCrudShow(Sender: TObject);
+begin
+  inherited;
+  if not FDQryFilho.Active then
+    FDQryFilho.Open;
+  FDSchemaAdapter1.AfterApplyUpdate := LimparCache;
+end;
+
+procedure TFrmCadPessoaJuridica.TabQueryShow(Sender: TObject);
+begin
+  inherited;
+  DBEdit1.Color := clWindow;;
+  DBEdit1.Font.Color := clWindowText;
+end;
+
+end.

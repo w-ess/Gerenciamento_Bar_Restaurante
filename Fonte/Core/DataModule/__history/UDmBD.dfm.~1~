@@ -1,0 +1,22 @@
+object DmBD: TDmBD
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Height = 153
+  Width = 284
+  object DBConexao: TFDConnection
+    Params.Strings = (
+      'OSAuthent=Yes'
+      'Database=ACDM'
+      'User_Name=sa'
+      'Server=DESKTOP-H4KIFGC'
+      'Password=bymundimok'
+      'DriverID=MSSQL')
+    LoginPrompt = False
+    Left = 24
+    Top = 16
+  end
+  object FDPhysMSSQLDriverLink1: TFDPhysMSSQLDriverLink
+    Left = 128
+    Top = 16
+  end
+end
